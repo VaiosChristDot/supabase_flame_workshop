@@ -40,15 +40,14 @@ class ThanksSlide extends FlutterDeckSlideWidget {
                   style: theme.subtitleTextStyle,
                 ),
                 const SizedBox(height: 48),
-                const SizedBox(
-                  width: 1100,
-                  child: RepoQrCard(
-                    label:
-                        'Feel free to connect with me on LinkedIn if you have '
-                        'further questions',
-                    url: 'https://www.linkedin.com/in/spydon',
-                    displayUrl: 'linkedin.com/in/spydon',
-                  ),
+                const RepoQrCard(
+                  label:
+                      'Feel free to connect with me on LinkedIn if you have '
+                      'further questions',
+                  url: 'https://www.linkedin.com/in/spydon',
+                  displayUrl: 'linkedin.com/in/spydon',
+                  qrSize: 420,
+                  textScale: 1.5,
                 ),
               ],
             ),

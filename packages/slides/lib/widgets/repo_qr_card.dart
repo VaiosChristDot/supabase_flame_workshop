@@ -11,6 +11,7 @@ class RepoQrCard extends StatelessWidget {
     required this.url,
     this.displayUrl,
     this.qrSize = 190,
+    this.textScale = 1,
     super.key,
   });
 
@@ -18,6 +19,7 @@ class RepoQrCard extends StatelessWidget {
   final String url;
   final String? displayUrl;
   final double qrSize;
+  final double textScale;
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +65,10 @@ class RepoQrCard extends StatelessWidget {
               children: [
                 Text(
                   label,
-                  style: textTheme.bodyMedium.copyWith(color: deckAccent),
+                  style: textTheme.bodyMedium.copyWith(
+                    color: deckAccent,
+                    fontSize: 22 * textScale,
+                  ),
                 ),
                 const SizedBox(height: 12),
                 FittedBox(
@@ -72,7 +77,10 @@ class RepoQrCard extends StatelessWidget {
                   child: Text(
                     displayUrl ?? url.replaceFirst('https://', ''),
                     maxLines: 1,
-                    style: GoogleFonts.jetBrainsMono(fontSize: 26, height: 1.3),
+                    style: GoogleFonts.jetBrainsMono(
+                      fontSize: 26 * textScale,
+                      height: 1.3,
+                    ),
                   ),
                 ),
               ],
