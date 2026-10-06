@@ -10,7 +10,7 @@ class ArchitectureSlide extends FlutterDeckSlideWidget {
           speakerNotes:
               '- Peer-authoritative: every client simulates its own player\n'
               '- One shared Realtime channel relays all events\n'
-              '- The database only stores the leaderboard',
+              '- The database only stores what should outlive a session',
         ),
       );
 
@@ -39,7 +39,10 @@ class ArchitectureSlide extends FlutterDeckSlideWidget {
             SizedBox(height: 24),
             Icon(Icons.arrow_downward, size: 48),
             SizedBox(height: 24),
-            ArchitectureBox(label: 'Postgres\nscores table', wide: true),
+            ArchitectureBox(
+              label: 'Postgres\npersistent game data',
+              wide: true,
+            ),
           ],
         ),
       ),

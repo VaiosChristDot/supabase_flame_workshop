@@ -35,7 +35,6 @@ class RunTheGameSlide extends FlutterDeckSlideWidget {
           'Copy the project URL and publishable key from the API settings',
           'Fill both into lib/src/env.dart in the skeleton',
           'The room value decides which room you join',
-          'Run it with flutter run, twice to play against yourself',
         ],
       ),
       rightBuilder: (context) => const CodePane(

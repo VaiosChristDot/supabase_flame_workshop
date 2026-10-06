@@ -29,8 +29,8 @@ class AgendaSlide extends FlutterDeckSlideWidget {
           'Deterministic worlds from one shared seed',
           'Sync players at 20 Hz with Supabase Broadcast',
           'Lobbies and disconnects with Presence',
-          'Rounds, combat, and picking a winner',
-          'A typed leaderboard, then play a full round',
+          'Gameplay: the rules and goals of your own game',
+          'Typed tables for what your game needs to remember',
         ],
       ),
     );

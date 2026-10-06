@@ -34,7 +34,7 @@ class GithubSyncSlide extends FlutterDeckSlideWidget {
     return FlutterDeckSlide.split(
       leftBuilder: (context) => const SideBullets(
         items: [
-          'Dashboard, Integrations, connect GitHub to your fork',
+          'Connect your GitHub fork to your Supabase project',
           'Point it at the supabase directory and pick main as the '
               'production branch',
           'Every push to main applies the new migration files',
