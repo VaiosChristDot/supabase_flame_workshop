@@ -111,15 +111,22 @@ dart run supabase_typegen \
   < ../../supabase/schema.json
 ```
 
-The generator can also read the schema straight from a database through the
-Supabase CLI, without the snapshot. Use `--local` for the running local stack,
-or `--project-ref your-project-ref` for a hosted project after `supabase login`:
+The types can also be generated straight from a database, without the
+snapshot. A recent Supabase CLI (2.120 has it) supports Dart directly. Use
+`--local` for the running local stack, or `--project-id your-project-ref` for a
+hosted project after `supabase login`:
 
 ```sh
 cd packages/game
-dart run supabase_typegen --local \
-  --output lib/src/db/supabase_schema.g.dart \
-  --import package:supabase_flutter/supabase_flutter.dart
+supabase gen types --lang dart --local > lib/src/db/supabase_schema.g.dart
+```
+
+The CLI runs the `supabase_typegen` dev dependency of the package it is called
+from. On an older CLI, call the generator yourself:
+
+```sh
+cd packages/game
+dart run supabase_typegen --local --output lib/src/db/supabase_schema.g.dart
 ```
 
 ## Deploying

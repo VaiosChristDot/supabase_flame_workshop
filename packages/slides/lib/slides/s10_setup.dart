@@ -16,7 +16,7 @@ class SetupSlide extends FlutterDeckSlideWidget {
               '- Enable anonymous sign-ins under Authentication settings, '
               'the game signs everyone in anonymously\n'
               '- Point at the QR code, that is the repository to fork, we '
-              'connect your fork to Supabase on the next slide\n'
+              'connect your fork to Supabase right after installing the CLI\n'
               '- The repository carries the migration and all the reference '
               'code, so nothing is copied by hand',
         ),

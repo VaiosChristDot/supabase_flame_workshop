@@ -20,7 +20,8 @@ class InstallCliSlide extends FlutterDeckSlideWidget {
               'token, the type generator reuses it\n'
               '- Docker is only needed for the local stack with supabase '
               'start, a hosted project works without it\n'
-              '- Ask everyone to run supabase --version before moving on',
+              '- Ask everyone to run supabase --version before moving on, '
+              'generating Dart types needs a recent CLI, 2.120 has it',
         ),
       );
 

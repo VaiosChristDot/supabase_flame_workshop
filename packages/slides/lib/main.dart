@@ -11,51 +11,54 @@ import 'slides/s02_speakers.dart';
 import 'slides/s03_agenda.dart';
 import 'slides/s04_why_serverless.dart';
 import 'slides/s05_architecture.dart';
-import 'slides/s06_credits.dart';
-import 'slides/s07_typed_v3.dart';
-import 'slides/s08_v2_vs_v3.dart';
-import 'slides/s09_setup.dart';
-import 'slides/s10_install_cli.dart';
-import 'slides/s11_github_sync.dart';
-import 'slides/s12_migration.dart';
-import 'slides/s13_skeleton.dart';
-import 'slides/s14_run_the_game.dart';
-import 'slides/s15_exercise_setup.dart';
-import 'slides/s16_flame_intro.dart';
-import 'slides/s17_components.dart';
-import 'slides/s18_game_loop.dart';
-import 'slides/s19_player.dart';
-import 'slides/s20_input.dart';
-import 'slides/s21_camera.dart';
-import 'slides/s22_exercise_move.dart';
-import 'slides/s23_shared_seed.dart';
-import 'slides/s24_obstacles.dart';
-import 'slides/s25_exercise_world.dart';
-import 'slides/s26_realtime.dart';
-import 'slides/s27_connect.dart';
-import 'slides/s28_events.dart';
-import 'slides/s29_exercise_connect.dart';
-import 'slides/s30_state_sync.dart';
-import 'slides/s31_dead_reckoning.dart';
-import 'slides/s32_exercise_sync.dart';
-import 'slides/s33_presence.dart';
-import 'slides/s34_phases.dart';
-import 'slides/s35_round_start.dart';
-import 'slides/s36_exercise_lobby.dart';
-import 'slides/s37_shooting.dart';
-import 'slides/s38_victim_auth.dart';
-import 'slides/s39_death.dart';
-import 'slides/s40_win.dart';
-import 'slides/s41_exercise_combat.dart';
-import 'slides/s42_disconnects.dart';
-import 'slides/s43_exercise_disconnects.dart';
-import 'slides/s44_typegen.dart';
-import 'slides/s45_typed_tables.dart';
-import 'slides/s46_typed_stream.dart';
-import 'slides/s47_exercise_leaderboard.dart';
-import 'slides/s48_demo.dart';
-import 'slides/s49_stretch.dart';
-import 'slides/s50_thanks.dart';
+import 'slides/s06_realtime.dart';
+import 'slides/s07_credits.dart';
+import 'slides/s08_typed_v3.dart';
+import 'slides/s09_v2_vs_v3.dart';
+import 'slides/s10_setup.dart';
+import 'slides/s11_install_cli.dart';
+import 'slides/s12_github_sync.dart';
+import 'slides/s13_migration.dart';
+import 'slides/s14_skeleton.dart';
+import 'slides/s15_run_the_game.dart';
+import 'slides/s16_exercise_setup.dart';
+import 'slides/s17_game_idea.dart';
+import 'slides/s18_initial_schema.dart';
+import 'slides/s19_schema.dart';
+import 'slides/s20_typegen.dart';
+import 'slides/s21_flame_intro.dart';
+import 'slides/s22_components.dart';
+import 'slides/s23_game_loop.dart';
+import 'slides/s24_player.dart';
+import 'slides/s25_input.dart';
+import 'slides/s26_camera.dart';
+import 'slides/s27_exercise_move.dart';
+import 'slides/s28_shared_seed.dart';
+import 'slides/s29_obstacles.dart';
+import 'slides/s30_exercise_world.dart';
+import 'slides/s31_connect.dart';
+import 'slides/s32_events.dart';
+import 'slides/s33_exercise_connect.dart';
+import 'slides/s34_state_sync.dart';
+import 'slides/s35_dead_reckoning.dart';
+import 'slides/s36_exercise_sync.dart';
+import 'slides/s37_presence.dart';
+import 'slides/s38_phases.dart';
+import 'slides/s39_round_start.dart';
+import 'slides/s40_exercise_lobby.dart';
+import 'slides/s41_shooting.dart';
+import 'slides/s42_victim_auth.dart';
+import 'slides/s43_death.dart';
+import 'slides/s44_win.dart';
+import 'slides/s45_exercise_combat.dart';
+import 'slides/s46_disconnects.dart';
+import 'slides/s47_exercise_disconnects.dart';
+import 'slides/s48_typed_tables.dart';
+import 'slides/s49_typed_stream.dart';
+import 'slides/s50_exercise_leaderboard.dart';
+import 'slides/s51_demo.dart';
+import 'slides/s52_stretch.dart';
+import 'slides/s53_thanks.dart';
 
 void main() {
   GoogleFonts.config.allowRuntimeFetching = false;
@@ -94,6 +97,7 @@ class WorkshopSlides extends StatelessWidget {
         AgendaSlide(),
         WhyServerlessSlide(),
         ArchitectureSlide(),
+        RealtimeSlide(),
         CreditsSlide(),
         TypedV3Slide(),
         V2VersusV3Slide(),
@@ -104,6 +108,10 @@ class WorkshopSlides extends StatelessWidget {
         SkeletonSlide(),
         RunTheGameSlide(),
         ExerciseSetupSlide(),
+        GameIdeaSlide(),
+        InitialSchemaSlide(),
+        SchemaSlide(),
+        TypegenSlide(),
         FlameIntroSlide(),
         ComponentsSlide(),
         GameLoopSlide(),
@@ -114,7 +122,6 @@ class WorkshopSlides extends StatelessWidget {
         SharedSeedSlide(),
         ObstaclesSlide(),
         ExerciseWorldSlide(),
-        RealtimeSlide(),
         ConnectSlide(),
         EventsSlide(),
         ExerciseConnectSlide(),
@@ -132,7 +139,6 @@ class WorkshopSlides extends StatelessWidget {
         ExerciseCombatSlide(),
         DisconnectsSlide(),
         ExerciseDisconnectsSlide(),
-        TypegenSlide(),
         TypedTablesSlide(),
         TypedStreamSlide(),
         ExerciseLeaderboardSlide(),

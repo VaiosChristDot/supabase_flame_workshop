@@ -24,7 +24,7 @@ class ExerciseLeaderboardSlide extends FlutterDeckSlideWidget {
         number: 9,
         title: 'The typed leaderboard',
         tasks: [
-          'Generate the typed schema with supabase_typegen and the Supabase CLI',
+          'Regenerate the typed schema with supabase gen types --lang dart',
           'The winner upserts wins through the typed builder',
           'Stream the top ten into the lobby with the typed stream',
         ],
