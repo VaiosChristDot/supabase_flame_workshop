@@ -8,7 +8,7 @@ import '../space_game.dart';
 import 'asteroid.dart';
 
 class Bullet extends PositionComponent
-    with HasGameReference<SpaceGame>, CollisionCallbacks {
+    with HasGameRef<SpaceGame>, CollisionCallbacks {
   Bullet({
     required this.bulletId,
     required this.ownerId,
@@ -47,7 +47,7 @@ class Bullet extends PositionComponent
 
   @override
   void onCollisionStart(
-    Set<Vector2> intersectionPoints,
+    List<Vector2> intersectionPoints,
     PositionComponent other,
   ) {
     super.onCollisionStart(intersectionPoints, other);
@@ -58,7 +58,7 @@ class Bullet extends PositionComponent
 
   @override
   void onRemove() {
-    game.bullets.remove(bulletId);
+    gameRef.bullets.remove(bulletId);
     super.onRemove();
   }
 }

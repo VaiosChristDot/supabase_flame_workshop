@@ -1,11 +1,11 @@
 {
-    "name": "Nebula Standoff",
-    "short_name": "Nebula",
+    "name": "Multiplayer Game",
+    "short_name": "Game",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#07070F",
     "theme_color": "#07070F",
-    "description": "Multiplayer space arena built with Flame and Supabase.",
+    "description": "Multiplayer game built with Flame and Supabase.",
     "orientation": "landscape-primary",
     "prefer_related_applications": false,
     "icons": [

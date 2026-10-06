@@ -9,12 +9,14 @@ class RepoQrCard extends StatelessWidget {
   const RepoQrCard({
     required this.label,
     required this.url,
+    this.displayUrl,
     this.qrSize = 190,
     super.key,
   });
 
   final String label;
   final String url;
+  final String? displayUrl;
   final double qrSize;
 
   @override
@@ -68,7 +70,7 @@ class RepoQrCard extends StatelessWidget {
                   fit: BoxFit.scaleDown,
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    url.replaceFirst('https://', ''),
+                    displayUrl ?? url.replaceFirst('https://', ''),
                     maxLines: 1,
                     style: GoogleFonts.jetBrainsMono(fontSize: 26, height: 1.3),
                   ),

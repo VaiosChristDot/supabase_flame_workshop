@@ -8,9 +8,9 @@ Flame and Supabase Realtime instead of on `pubspec.yaml`.
 
 | Path | What it is |
 | --- | --- |
-| `pubspec.yaml` | `flame`, `supabase_flutter` 3.0.0-dev.2, and `supabase_typegen`, all from pub.dev |
+| `pubspec.yaml` | `flame`, `supabase_flutter` 3.0.0-dev.9, and `supabase_typegen`, all from pub.dev |
 | `lib/main.dart` | The entry point, with the exercise 1 gap marked |
-| `lib/src/env.dart` | `SUPABASE_URL`, `SUPABASE_KEY`, and `ROOM` dart-defines, defaulted to the local stack |
+| `lib/src/env.dart` | The Supabase URL, publishable key, and room, defaulted to the local stack |
 | `lib/src/game_config.dart` | Every tuning constant the exercises refer to |
 | `lib/src/app/` | A placeholder shell that reports whether you have a session |
 | `web/` | Web scaffolding, so `flutter run -d chrome` works out of the box |
@@ -32,16 +32,11 @@ cd packages/skeleton
 flutter run -d chrome
 ```
 
-Against a hosted project instead of the local stack:
+To run against a hosted project instead of the local stack, replace the
+default values in `lib/src/env.dart` with your project URL and publishable key,
+then run the same command. Change the room default to play in a separate room.
 
-```sh
-flutter run -d chrome \
-  --dart-define=SUPABASE_URL=https://your-ref.supabase.co \
-  --dart-define=SUPABASE_KEY=sb_publishable_... \
-  --dart-define=ROOM=main
-```
-
-The launch pad screen turns green once exercise 1 is done.
+The status screen turns green once exercise 1 is done.
 
 ## Reference
 

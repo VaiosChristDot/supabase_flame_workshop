@@ -1,7 +1,7 @@
-# Building a Real-Time Multiplayer Space Game with Flame and Supabase
+# Building a Real-Time Multiplayer ~~Space~~ Game with Flame and Supabase
 
-Workshop monorepo for building Nebula Standoff, a last-ship-standing multiplayer
-space arena. The game runs entirely on Flutter and serverless primitives: the
+Workshop monorepo for building a last-player-standing multiplayer game. The
+game runs entirely on Flutter and serverless primitives: the
 [Flame](https://flame-engine.org) engine drives the 2D canvas, and
 [Supabase Realtime](https://supabase.com/docs/guides/realtime) powers the
 netcode with Broadcast events and Presence. There is no game server.
@@ -11,10 +11,10 @@ The database layer runs on the typesafe Supabase v3 groundwork, merged into
 to pub.dev:
 
 - [#1634](https://github.com/supabase/supabase-flutter/pull/1634) typed table
-  access with `PostgrestTable` and `TableColumn`, in `supabase_flutter`
-  3.0.0-dev.2
+  access with `PostgrestTable` and `PostgrestColumn`, in `supabase_flutter`
+  3.0.0-dev.9
 - [#1635](https://github.com/supabase/supabase-flutter/pull/1635) the
-  `supabase_typegen` code generator, released as `supabase_typegen` 0.1.2
+  `supabase_typegen` code generator, released as `supabase_typegen` 0.5.1
 
 Everything resolves from pub.dev. There are no git dependencies and no
 `dependency_overrides` anywhere in the workspace.
@@ -111,8 +111,16 @@ dart run supabase_typegen \
   < ../../supabase/schema.json
 ```
 
-Once `supabase gen types --lang json` ships in the CLI, the snapshot can be
-produced directly from the running database.
+The generator can also read the schema straight from a database through the
+Supabase CLI, without the snapshot. Use `--local` for the running local stack,
+or `--project-ref your-project-ref` for a hosted project after `supabase login`:
+
+```sh
+cd packages/game
+dart run supabase_typegen --local \
+  --output lib/src/db/supabase_schema.g.dart \
+  --import package:supabase_flutter/supabase_flutter.dart
+```
 
 ## Deploying
 
@@ -133,13 +141,13 @@ settings, then serve `build/web` from any static host.
 
 - One Realtime channel per room carries five broadcast events: `state`,
   `shoot`, `hit`, `death`, and `roundStart`.
-- The netcode is peer-authoritative: every client simulates its own ship and
+- The netcode is peer-authoritative: every client simulates its own player and
   bullets, and the victim of a hit applies its own damage before broadcasting
-  the result. Each ship has exactly one authority, so there are no conflicts.
+  the result. Each player has exactly one authority, so there are no conflicts.
 - A round is defined by `{seed, startedAt}`: every client generates an
-  identical asteroid field from the seed and derives the shrinking storm zone
-  radius from the elapsed time. The world costs zero bandwidth.
-- Ship state is throttled to 20 packets per second and remote ships smooth
+  identical world from the seed and derives the round clock from the start
+  time. The world costs zero bandwidth.
+- Player state is throttled to 20 packets per second and remote players smooth
   over the gaps with dead reckoning.
 - Presence powers the lobby roster, disconnect handling, and match discovery:
   players in a match advertise the seed so late joiners can spectate.

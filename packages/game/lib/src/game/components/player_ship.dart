@@ -14,7 +14,7 @@ import 'ship_base.dart';
 import 'storm_zone.dart';
 
 class PlayerShip extends ShipBase
-    with HasGameReference<SpaceGame>, KeyboardHandler, CollisionCallbacks {
+    with HasGameRef<SpaceGame>, KeyboardHandler, CollisionCallbacks {
   PlayerShip({
     required super.playerId,
     required super.playerName,
@@ -64,7 +64,7 @@ class PlayerShip extends ShipBase
   @override
   void update(double dt) {
     super.update(dt);
-    if (game.phase.value != GamePhase.playing) {
+    if (gameRef.phase.value != GamePhase.playing) {
       return;
     }
     _integrate(dt);
@@ -99,7 +99,7 @@ class PlayerShip extends ShipBase
   }
 
   void _applyZoneDamage(double dt) {
-    final round = game.round;
+    final round = gameRef.round;
     if (round == null) {
       return;
     }
@@ -116,7 +116,7 @@ class PlayerShip extends ShipBase
     _fireCooldown -= dt;
     if (_fire && _fireCooldown <= 0) {
       _fireCooldown = GameConfig.fireCooldown;
-      game.fireLocalBullet();
+      gameRef.fireLocalBullet();
     }
   }
 
@@ -136,7 +136,7 @@ class PlayerShip extends ShipBase
     _sinceSend = 0;
     _lastSentPosition.setFrom(position);
     _lastSentAngle = angle;
-    game.net.send(
+    gameRef.net.send(
       NetEvent.state,
       ShipStatePayload(
         id: playerId,
@@ -156,15 +156,15 @@ class PlayerShip extends ShipBase
     }
     hp -= amount;
     flash();
-    game.hpNotifier.value = hp;
+    gameRef.hpNotifier.value = hp;
     if (hp <= 0) {
-      game.onLocalDeath(killerId);
+      gameRef.onLocalDeath(killerId);
     }
   }
 
   @override
   void onCollisionStart(
-    Set<Vector2> intersectionPoints,
+    List<Vector2> intersectionPoints,
     PositionComponent other,
   ) {
     super.onCollisionStart(intersectionPoints, other);
@@ -174,7 +174,7 @@ class PlayerShip extends ShipBase
         return;
       }
       applyDamage(GameConfig.bulletDamage, killerId: other.ownerId);
-      game.net.send(
+      gameRef.net.send(
         NetEvent.hit,
         HitPayload(
           id: playerId,

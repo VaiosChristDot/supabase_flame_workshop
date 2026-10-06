@@ -1,6 +1,9 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_deck/flutter_deck.dart';
 import 'package:flutter_deck_web_client/flutter_deck_web_client.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'deck_theme.dart';
 import 'slides/s01_title.dart';
@@ -12,47 +15,56 @@ import 'slides/s06_credits.dart';
 import 'slides/s07_typed_v3.dart';
 import 'slides/s08_v2_vs_v3.dart';
 import 'slides/s09_setup.dart';
-import 'slides/s10_github_sync.dart';
-import 'slides/s11_skeleton.dart';
-import 'slides/s12_run_the_game.dart';
-import 'slides/s13_exercise_liftoff.dart';
-import 'slides/s14_flame_intro.dart';
-import 'slides/s15_components.dart';
-import 'slides/s16_game_loop.dart';
-import 'slides/s17_ship.dart';
-import 'slides/s18_input.dart';
-import 'slides/s19_camera.dart';
-import 'slides/s20_exercise_fly.dart';
-import 'slides/s21_shared_seed.dart';
-import 'slides/s22_asteroids.dart';
-import 'slides/s23_exercise_asteroids.dart';
-import 'slides/s24_realtime.dart';
-import 'slides/s25_connect.dart';
-import 'slides/s26_events.dart';
-import 'slides/s27_exercise_connect.dart';
-import 'slides/s28_state_sync.dart';
-import 'slides/s29_dead_reckoning.dart';
-import 'slides/s30_exercise_sync.dart';
-import 'slides/s31_presence.dart';
-import 'slides/s32_phases.dart';
-import 'slides/s33_round_start.dart';
-import 'slides/s34_exercise_lobby.dart';
-import 'slides/s35_shooting.dart';
-import 'slides/s36_victim_auth.dart';
-import 'slides/s37_death.dart';
-import 'slides/s38_win.dart';
-import 'slides/s39_exercise_combat.dart';
-import 'slides/s40_zone.dart';
-import 'slides/s41_disconnects.dart';
-import 'slides/s42_exercise_storm.dart';
-import 'slides/s43_typed_tables.dart';
-import 'slides/s44_typed_stream.dart';
-import 'slides/s45_exercise_leaderboard.dart';
-import 'slides/s46_demo.dart';
-import 'slides/s47_stretch.dart';
-import 'slides/s48_thanks.dart';
+import 'slides/s10_install_cli.dart';
+import 'slides/s11_github_sync.dart';
+import 'slides/s12_migration.dart';
+import 'slides/s13_skeleton.dart';
+import 'slides/s14_run_the_game.dart';
+import 'slides/s15_exercise_setup.dart';
+import 'slides/s16_flame_intro.dart';
+import 'slides/s17_components.dart';
+import 'slides/s18_game_loop.dart';
+import 'slides/s19_player.dart';
+import 'slides/s20_input.dart';
+import 'slides/s21_camera.dart';
+import 'slides/s22_exercise_move.dart';
+import 'slides/s23_shared_seed.dart';
+import 'slides/s24_obstacles.dart';
+import 'slides/s25_exercise_world.dart';
+import 'slides/s26_realtime.dart';
+import 'slides/s27_connect.dart';
+import 'slides/s28_events.dart';
+import 'slides/s29_exercise_connect.dart';
+import 'slides/s30_state_sync.dart';
+import 'slides/s31_dead_reckoning.dart';
+import 'slides/s32_exercise_sync.dart';
+import 'slides/s33_presence.dart';
+import 'slides/s34_phases.dart';
+import 'slides/s35_round_start.dart';
+import 'slides/s36_exercise_lobby.dart';
+import 'slides/s37_shooting.dart';
+import 'slides/s38_victim_auth.dart';
+import 'slides/s39_death.dart';
+import 'slides/s40_win.dart';
+import 'slides/s41_exercise_combat.dart';
+import 'slides/s42_disconnects.dart';
+import 'slides/s43_exercise_disconnects.dart';
+import 'slides/s44_typegen.dart';
+import 'slides/s45_typed_tables.dart';
+import 'slides/s46_typed_stream.dart';
+import 'slides/s47_exercise_leaderboard.dart';
+import 'slides/s48_demo.dart';
+import 'slides/s49_stretch.dart';
+import 'slides/s50_thanks.dart';
 
-void main() => runApp(const WorkshopSlides());
+void main() {
+  GoogleFonts.config.allowRuntimeFetching = false;
+  LicenseRegistry.addLicense(() async* {
+    final license = await rootBundle.loadString('assets/google_fonts/OFL.txt');
+    yield LicenseEntryWithLineBreaks(['google_fonts'], license);
+  });
+  runApp(const WorkshopSlides());
+}
 
 class WorkshopSlides extends StatelessWidget {
   const WorkshopSlides({super.key});
@@ -86,20 +98,22 @@ class WorkshopSlides extends StatelessWidget {
         TypedV3Slide(),
         V2VersusV3Slide(),
         SetupSlide(),
+        InstallCliSlide(),
         GithubSyncSlide(),
+        MigrationSlide(),
         SkeletonSlide(),
         RunTheGameSlide(),
-        ExerciseLiftoffSlide(),
+        ExerciseSetupSlide(),
         FlameIntroSlide(),
         ComponentsSlide(),
         GameLoopSlide(),
-        ShipSlide(),
+        PlayerSlide(),
         InputSlide(),
         CameraSlide(),
-        ExerciseFlySlide(),
+        ExerciseMoveSlide(),
         SharedSeedSlide(),
-        AsteroidsSlide(),
-        ExerciseAsteroidsSlide(),
+        ObstaclesSlide(),
+        ExerciseWorldSlide(),
         RealtimeSlide(),
         ConnectSlide(),
         EventsSlide(),
@@ -116,9 +130,9 @@ class WorkshopSlides extends StatelessWidget {
         DeathSlide(),
         WinSlide(),
         ExerciseCombatSlide(),
-        ZoneSlide(),
         DisconnectsSlide(),
-        ExerciseStormSlide(),
+        ExerciseDisconnectsSlide(),
+        TypegenSlide(),
         TypedTablesSlide(),
         TypedStreamSlide(),
         ExerciseLeaderboardSlide(),

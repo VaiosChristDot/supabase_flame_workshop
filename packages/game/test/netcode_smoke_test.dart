@@ -23,9 +23,7 @@ void main() {
   late SupabaseClient clientB;
 
   setUpAll(() async {
-    final options = AuthClientOptions(
-      pkceAsyncStorage: MemoryAuthAsyncStorage(),
-    );
+    final options = AuthClientOptions(asyncStorage: MemoryAuthAsyncStorage());
     clientA = SupabaseClient(_url, _key, authOptions: options);
     clientB = SupabaseClient(_url, _key, authOptions: options);
     await clientA.auth.signInAnonymously();

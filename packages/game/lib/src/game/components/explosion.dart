@@ -1,34 +1,22 @@
-import 'dart:math';
 import 'dart:ui';
 
 import 'package:flame/components.dart';
 import 'package:flame/particles.dart';
 
-class Explosion extends ParticleSystemComponent {
+class Explosion extends ParticleEmitterComponent {
   Explosion({required Vector2 position, required Color color})
-    : super(position: position, priority: 15, particle: _burst(color));
-
-  static Particle _burst(Color color) {
-    final random = Random();
-    return Particle.generate(
-      count: 24,
-      lifespan: 0.9,
-      generator: (index) {
-        final direction = random.nextDouble() * 2 * pi;
-        final speed = 40 + random.nextDouble() * 140;
-        return AcceleratedParticle(
-          speed: Vector2(cos(direction), sin(direction))..scale(speed),
-          child: ComputedParticle(
-            renderer: (canvas, particle) {
-              canvas.drawCircle(
-                Offset.zero,
-                2 + random.nextDouble() * 2,
-                Paint()..color = color.withValues(alpha: 1 - particle.progress),
-              );
-            },
-          ),
-        );
-      },
-    );
-  }
+    : super(
+        position: position,
+        priority: 15,
+        emitter: ParticleEmitter(
+          maxParticles: 24,
+          bursts: const [EmitterBurst(0, 24)],
+          lifespan: (0.9, 0.9),
+          speed: (40, 180),
+          size: (4, 8),
+          opacityOverLife: ParticleCurve(1, 0),
+          colorOverLife: ColorRamp.solid(color),
+        ),
+        renderer: CircleParticleRenderer(),
+      );
 }

@@ -16,9 +16,50 @@ class TitleSlide extends FlutterDeckSlideWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FlutterDeckSlide.title(
-      title: 'Building a Real-Time Multiplayer Space Game',
-      subtitle: 'with Flame and Supabase',
+    return FlutterDeckSlide.custom(
+      builder: (context) {
+        final theme = FlutterDeckTitleSlideTheme.of(context);
+        final configuration = context.flutterDeck.configuration;
+
+        return FlutterDeckSlideBase(
+          contentBuilder: (context) => Padding(
+            padding: const EdgeInsets.all(64),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text.rich(
+                  const TextSpan(
+                    children: [
+                      TextSpan(text: 'Building a Real-Time Multiplayer '),
+                      TextSpan(
+                        text: 'Space',
+                        style: TextStyle(
+                          decoration: TextDecoration.lineThrough,
+                        ),
+                      ),
+                      TextSpan(text: ' Game'),
+                    ],
+                  ),
+                  style: theme.titleTextStyle,
+                ),
+                const SizedBox(height: 8),
+                Text('with Flame and Supabase', style: theme.subtitleTextStyle),
+              ],
+            ),
+          ),
+          footerBuilder: configuration.footer.showFooter
+              ? (context) => FlutterDeckFooter.fromConfiguration(
+                  configuration: configuration.footer,
+                )
+              : null,
+          headerBuilder: configuration.header.showHeader
+              ? (context) => FlutterDeckHeader.fromConfiguration(
+                  configuration: configuration.header,
+                )
+              : null,
+        );
+      },
     );
   }
 }

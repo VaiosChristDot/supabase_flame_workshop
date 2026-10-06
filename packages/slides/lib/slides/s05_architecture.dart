@@ -8,7 +8,7 @@ class ArchitectureSlide extends FlutterDeckSlideWidget {
           route: '/architecture',
           title: 'Architecture',
           speakerNotes:
-              '- Peer-authoritative: every client simulates its own ship\n'
+              '- Peer-authoritative: every client simulates its own player\n'
               '- One shared Realtime channel relays all events\n'
               '- The database only stores the leaderboard',
         ),
@@ -24,17 +24,16 @@ class ArchitectureSlide extends FlutterDeckSlideWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                ArchitectureBox(label: 'Client A\nowns ship A'),
-                ArchitectureBox(label: 'Client B\nowns ship B'),
-                ArchitectureBox(label: 'Client C\nowns ship C'),
+                ArchitectureBox(label: 'Client A\nowns player A'),
+                ArchitectureBox(label: 'Client B\nowns player B'),
+                ArchitectureBox(label: 'Client C\nowns player C'),
               ],
             ),
             SizedBox(height: 24),
             Icon(Icons.swap_vert, size: 64),
             SizedBox(height: 24),
             ArchitectureBox(
-              label:
-                  'Supabase Realtime channel\nBroadcast events + Presence roster',
+              label: 'Supabase Realtime channel\nBroadcast events + Presence roster',
               wide: true,
             ),
             SizedBox(height: 24),

@@ -18,7 +18,7 @@ class TypedV3Slide extends FlutterDeckSlideWidget {
               'checks queries and streams\n'
               '- A generator reads your database schema and writes those '
               'types for you\n'
-              '- It is on pub.dev as 3.0.0-dev.2 and the workshop already '
+              '- It is on pub.dev as 3.0.0-dev.9 and the workshop already '
               'resolves it, so there is nothing extra to install\n'
               '- Fresh off the press, so expect the odd rough edge; typed '
               'Broadcast and Presence are the next step',
@@ -35,7 +35,7 @@ class TypedV3Slide extends FlutterDeckSlideWidget {
           'Tables and columns become Dart types, so the compiler checks '
               'your queries and streams',
           'A generator reads your database schema and writes those types',
-          'On pub.dev today as the 3.0.0-dev.2 prerelease',
+          'On pub.dev today as the 3.0.0-dev.9 prerelease',
         ],
       ),
     );
