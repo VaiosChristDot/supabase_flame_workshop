@@ -20,8 +20,8 @@ class CreditsSlide extends FlutterDeckSlideWidget {
       title: 'Supabase credits, on us',
       subtitle:
           'Everyone gets a credits code today. Feel free to save it for your '
-          'next big idea: for this workshop, a free project at database.new '
-          'is all we need.',
+          'next big idea:\n'
+          'for this workshop, a free project at database.new is all we need.',
     );
   }
 }
