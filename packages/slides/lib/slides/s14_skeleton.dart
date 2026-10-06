@@ -15,7 +15,8 @@ class SkeletonSlide extends FlutterDeckSlideWidget {
               'pubspec today\n'
               '- flame and the v3 prerelease of supabase_flutter are '
               'already resolved\n'
-              '- The status screen turns green once exercise 1 is done\n'
+              '- main.dart already initializes Supabase and signs in '
+              'anonymously, the status screen turns green once that works\n'
               '- packages/game is the finished reference, one directory over',
         ),
       );
@@ -38,7 +39,7 @@ skeleton/
   pubspec.yaml    flame, supabase_flutter 3.0.0-dev.9
   web/            scaffolding for -d chrome
   lib/
-    main.dart     exercise 1 starts here
+    main.dart     Supabase init, anonymous sign-in
     src/
       env.dart          url, key, room: fill in
       game_config.dart  tuning constants

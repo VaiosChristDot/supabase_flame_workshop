@@ -32,7 +32,7 @@ class StatusScreen extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             const Text(
-              'Skeleton ready. Start with exercise 1 in lib/main.dart.',
+              'Skeleton ready. Fill in lib/src/env.dart to connect.',
               style: TextStyle(color: Colors.white60, fontSize: 16),
             ),
             const SizedBox(height: 32),
@@ -76,8 +76,8 @@ class AuthStatus extends StatelessWidget {
             child: Text(
               connected
                   ? 'Signed in anonymously as ${user.id}'
-                  : 'No Supabase session yet. Initialize Supabase and sign in '
-                        'anonymously, then hot restart.',
+                  : 'No Supabase session yet. Check lib/src/env.dart and that '
+                        'anonymous sign-ins are enabled, then hot restart.',
               style: TextStyle(
                 color: connected ? _green : Colors.white70,
                 fontSize: 16,

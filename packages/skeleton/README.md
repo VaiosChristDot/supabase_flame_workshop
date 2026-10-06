@@ -9,7 +9,7 @@ Flame and Supabase Realtime instead of on `pubspec.yaml`.
 | Path | What it is |
 | --- | --- |
 | `pubspec.yaml` | `flame`, `supabase_flutter` 3.0.0-dev.9, and `supabase_typegen`, all from pub.dev |
-| `lib/main.dart` | The entry point, with the exercise 1 gap marked |
+| `lib/main.dart` | The entry point: initializes Supabase and signs in anonymously |
 | `lib/src/env.dart` | The Supabase URL, publishable key, and room, defaulted to the local stack |
 | `lib/src/game_config.dart` | Every tuning constant the exercises refer to |
 | `lib/src/app/` | A placeholder shell that reports whether you have a session |
@@ -36,7 +36,7 @@ To run against a hosted project instead of the local stack, replace the
 default values in `lib/src/env.dart` with your project URL and publishable key,
 then run the same command. Change the room default to play in a separate room.
 
-The status screen turns green once exercise 1 is done.
+The status screen turns green once the app has a Supabase session.
 
 ## Reference
 

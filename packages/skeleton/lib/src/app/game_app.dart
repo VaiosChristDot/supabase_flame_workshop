@@ -13,7 +13,7 @@ class GameApp extends StatelessWidget {
       theme: ThemeData.dark(useMaterial3: true),
       home: const Scaffold(
         backgroundColor: Color(0xFF07070F),
-        // Exercise 2: swap this for a GameWidget with your game.
+        // Swap this for a GameWidget with your game.
         body: StatusScreen(),
       ),
     );

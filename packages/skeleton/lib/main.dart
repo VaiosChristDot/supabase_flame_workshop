@@ -1,12 +1,22 @@
 import 'package:flutter/widgets.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 import 'src/app/game_app.dart';
+import 'src/env.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  // Exercise 1: initialize Supabase with Env.supabaseUrl and Env.supabaseKey,
-  // then sign in anonymously when there is no session yet.
-
+  await Supabase.initialize(
+    url: Env.supabaseUrl,
+    publishableKey: Env.supabaseKey,
+  );
+  final auth = Supabase.instance.client.auth;
+  if (auth.currentSession == null) {
+    try {
+      await auth.signInAnonymously();
+    } on Exception catch (error) {
+      debugPrint('Anonymous sign-in failed: $error');
+    }
+  }
   runApp(const GameApp());
 }

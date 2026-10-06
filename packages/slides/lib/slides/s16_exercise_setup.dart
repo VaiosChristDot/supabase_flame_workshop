@@ -35,7 +35,6 @@ class ExerciseSetupSlide extends FlutterDeckSlideWidget {
               'scores migration',
           'Fill your project URL and publishable key into lib/src/env.dart',
           'Run packages/skeleton with flutter run -d chrome',
-          'main.dart: Supabase.initialize, then signInAnonymously',
         ],
         doneWhen: 'The status screen turns green with your user id.',
       ),
