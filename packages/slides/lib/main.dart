@@ -25,7 +25,7 @@ import 'slides/s16_exercise_setup.dart';
 import 'slides/s17_game_idea.dart';
 import 'slides/s18_initial_schema.dart';
 import 'slides/s19_schema.dart';
-import 'slides/s20_stretch.dart';
+import 'slides/s20_questions.dart';
 import 'slides/s21_thanks.dart';
 
 void main() {
@@ -79,7 +79,7 @@ class WorkshopSlides extends StatelessWidget {
         GameIdeaSlide(),
         InitialSchemaSlide(),
         SchemaSlide(),
-        StretchSlide(),
+        QuestionsSlide(),
         ThanksSlide(),
       ],
     );
