@@ -1,12 +1,12 @@
 class Env {
   static const supabaseUrl = String.fromEnvironment(
     'SUPABASE_URL',
-    defaultValue: 'http://127.0.0.1:54621',
+    defaultValue: 'https://tjftgzhlvhjskhxcrvvg.supabase.co',
   );
 
   static const supabaseKey = String.fromEnvironment(
     'SUPABASE_KEY',
-    defaultValue: 'sb_publishable_ACJWlzQHlZjBrEguHvfOxg_3BJgxAaH',
+    defaultValue: 'sb_publishable_WNkW5mUgnN6-IirToTz6cw_r-wvlGxu',
   );
 
   static const room = String.fromEnvironment('ROOM', defaultValue: 'main');
