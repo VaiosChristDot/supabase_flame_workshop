@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../env.dart';
+import '../game/random_username.dart';
+import 'game_screen.dart';
 
 const _green = Color(0xFF3ECF8E);
 
@@ -37,6 +39,24 @@ class StatusScreen extends StatelessWidget {
             ),
             const SizedBox(height: 32),
             const AuthStatus(),
+            const SizedBox(height: 24),
+            FilledButton.icon(
+              style: FilledButton.styleFrom(
+                backgroundColor: _green,
+                foregroundColor: Colors.black,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 28,
+                  vertical: 18,
+                ),
+              ),
+              icon: const Icon(Icons.sports_esports),
+              label: const Text('Play', style: TextStyle(fontSize: 16)),
+              onPressed: () => Navigator.of(context).push(
+                MaterialPageRoute<void>(
+                  builder: (_) => GameScreen(playerName: randomUsername()),
+                ),
+              ),
+            ),
             const SizedBox(height: 24),
             const EnvRow(label: 'SUPABASE_URL', value: Env.supabaseUrl),
             const EnvRow(label: 'ROOM', value: Env.room),

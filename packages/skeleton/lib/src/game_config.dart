@@ -28,6 +28,22 @@ class GameConfig {
   static const countdownSeconds = 3;
   static const roundOverSeconds = 6;
 
+  static const kartAcceleration = 900.0;
+  static const bananaCount = 25;
+  static const bananaRadius = 10.0;
+  static const bananaThrowSpeed = 560.0;
+  static const bananaFlightSeconds = 0.9;
+  static const spinOutSeconds = 1.6;
+
+  static const neonColors = [
+    Color(0xFF00F0FF),
+    Color(0xFFFF2BD6),
+    Color(0xFF39FF14),
+    Color(0xFFFF6B1A),
+    Color(0xFF9D4BFF),
+    Color(0xFFFF3B5C),
+  ];
+
   static const playerColors = [
     Color(0xFF4FC3F7),
     Color(0xFFFF8A65),
